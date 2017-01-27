@@ -17,23 +17,6 @@ public class APArrayIntList implements APIntList
         array[size]=item;
         size+=1;
     }
-    public void add(int index, int item){
-        int [] added = new int[array.length];
-        for (int i = 0; i < array.length; i++){
-            if (i == index){
-                added[i]=item;
-            }
-            else if (i>index){
-                added[i+1]=array[i];
-            }
-            else{
-                added[i]=array[i];
-            }
-        }
-    }
-    public void set(int index, int item){
-        array[index]=item;
-    }
     public int get(int index){
         if (index>size||index<0){
         throw new IndexOutOfBoundsException("Out of bounds");
