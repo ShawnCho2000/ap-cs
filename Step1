@@ -12,7 +12,10 @@ public class APArrayIntList implements APIntList
         size+=1;
     }
     public int get(int index){
+        if (index>size){
+        throw new IndexOutOfBoundsException("Out of bounds");
+        }
         return array[index];
+
     }
-    
 }
