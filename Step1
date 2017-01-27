@@ -1,5 +1,4 @@
-public class APArrayIntList implements APIntList
-{ 
+public class APArrayIntList implements APIntList{ 
     
     private int[] array;
     private int size;
@@ -17,8 +16,13 @@ public class APArrayIntList implements APIntList
         array[size]=item;
         size+=1;
     }
+    public void add(int index, int item){
+    }
+    public void set(int index, int item){
+        array[index]=item;
+    }
     public int get(int index){
-        if (index>size||index<0){
+        if (index>=size()||index<0){
         throw new IndexOutOfBoundsException("Out of bounds");
         }
         return array[index];
