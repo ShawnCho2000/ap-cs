@@ -1,7 +1,7 @@
 public class APArrayIntList implements APIntList
 { 
     
-    int[] array = new int [1000];
+    int[] array = new int [5];
     private int size;
     public int size(){
         return size;
