@@ -1,0 +1,69 @@
+public class APArrayIntList implements APIntList {
+
+    private int[] array;
+    private int size;
+
+    public APArrayIntList() {
+        array = new int[5];
+        size = 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void add(int item) {
+        resize();
+        array[size] = item;
+        size++;
+    }
+    public void add(int index, int item) {
+
+        if (index > size() || index < 0) {
+            throw new IndexOutOfBoundsException("Out of bounds");
+        }
+        size++;
+        resize();
+
+        int temp = array[index];
+        int carry = 0;
+        array[index] = item;
+        for (int i = 1; i <= size - index; i++) {
+            carry = array[index + i];
+            array[index + i] = temp;
+            temp = carry;
+
+
+        }
+    }
+    public void set(int index, int item) {
+        array[index] = item;
+    }
+    public int get(int index) {
+        if (index >= size() || index < 0) {
+            throw new IndexOutOfBoundsException("Out of bounds");
+        }
+        return array[index];
+    }
+    public void resize() {
+        if (size >= array.length) {
+            int[] temp = new int[array.length * 2];
+            for (int i = 0; i < array.length; i++) {
+                temp[i] = array[i];
+            }
+            array = temp;
+        }
+    }
+    public void clear(){ 
+        array = null;
+    }
+    public int remove(int index){
+        int out = array[index];
+        for (int i = 0; i <= size - index-2; i++) {
+            array[index+i]=array[index+i+1];
+        }
+        size--;
+        return out;
+    }
+
+}
