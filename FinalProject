@@ -56,8 +56,8 @@ public class APArrayIntList implements APIntList {
         }
     }
     public void clear(){ 
-        int[] temp = new int[5];
-        array = temp;
+        array = new int[5];
+        size = 0; 
     }
     public int remove(int index){
         if (index >= size() || index < 0) {
