@@ -32,11 +32,12 @@ public class APArrayIntList implements APIntList {
             carry = array[index + i];
             array[index + i] = temp;
             temp = carry;
-
-
         }
     }
     public void set(int index, int item) {
+        if (index >= size() || index < 0) {
+            throw new IndexOutOfBoundsException("Out of bounds");
+        }
         array[index] = item;
     }
     public int get(int index) {
@@ -55,11 +56,15 @@ public class APArrayIntList implements APIntList {
         }
     }
     public void clear(){ 
-        array = null;
+        int[] temp = new int[5];
+        array = temp;
     }
     public int remove(int index){
+        if (index >= size() || index < 0) {
+            throw new IndexOutOfBoundsException("Out of bounds");
+        }
         int out = array[index];
-        for (int i = 0; i <= size - index-2; i++) {
+        for (int i = 0; i <= size() - index-2; i++) {
             array[index+i]=array[index+i+1];
         }
         size--;
